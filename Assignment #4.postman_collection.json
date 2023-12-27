@@ -1,0 +1,112 @@
+{
+	"info": {
+		"_postman_id": "4bfcf65c-5c93-48ec-9c20-63398cdffc94",
+		"name": "Assignment #4",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19231508"
+	},
+	"item": [
+		{
+			"name": "API requests",
+			"item": [
+				{
+					"name": "Get single product",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Schema is Valid\",function(){",
+									"    const schema={",
+									"        type:'object',",
+									"        properties:{",
+									"            id:{",
+									"                type:'integer'",
+									"            },",
+									"            category:{",
+									"                type:\"string\"",
+									"            },",
+									"            name:{",
+									"                type:\"string\"",
+									"            },",
+									"            isAvailable:{",
+									"                type:'boolean'",
+									"            },",
+									"             ['product-description']:{",
+									"                type:\"string\"",
+									"            },",
+									"             additionalText:{",
+									"                type:\"string\"",
+									"            }",
+									"            ",
+									"        },",
+									"        required:['id','category','name','isAvailable','additionalText','product-description'],",
+									"        additionalProperties:false",
+									"        ",
+									"    };",
+									"    pm.response.to.have.jsonSchema(schema);",
+									"",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/products/:productId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"products",
+								":productId"
+							],
+							"variable": [
+								{
+									"key": "productId",
+									"value": "1001"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "postman_api_key",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "collectionid",
+			"value": "",
+			"type": "string"
+		}
+	]
+}

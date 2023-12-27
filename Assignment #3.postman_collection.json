@@ -1,0 +1,104 @@
+{
+	"info": {
+		"_postman_id": "73c1e4a6-ecc0-4713-b36c-a47c14a29f45",
+		"name": "Assignment #3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19231508"
+	},
+	"item": [
+		{
+			"name": "API requests",
+			"item": [
+				{
+					"name": "Get an order by ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let response=pm.response.json();",
+									"",
+									"pm.test(\"Response body is a Json are not\", function () {",
+									"    pm.response.to.be.json;",
+									"});",
+									"",
+									"pm.test(\"Response body contains a property id\", function () {",
+									"    pm.expect(response).to.have.property('id');",
+									"    pm.expect(response.id).to.match(/^[A-Z0-9]{9}$/);",
+									"});",
+									"",
+									"pm.test(\"Response body contians a property products\", function () {",
+									"    pm.expect(response).to.have.property('products');",
+									"    pm.expect(response.products).to.be.a('array');",
+									"});",
+									"",
+									"// pm.expect(response).to.have.property('id');"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "ac02cf147ac544432530fd6b0e212e58b8ac7014",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/orders/:orderId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"orders",
+								":orderId"
+							],
+							"variable": [
+								{
+									"key": "orderId",
+									"value": "RPGKUL5WO"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "collectionId",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "postman_api_key",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
